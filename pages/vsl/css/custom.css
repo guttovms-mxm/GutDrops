@@ -16,7 +16,7 @@ main#container {
 }
 
 .red-header {
-	background-color: #a70c0c;
+	background-color: var(--primary-color-dark);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -38,7 +38,7 @@ header img {
 }
 
 marquee {
-	background-color: #810505;
+	background-color: var(--primary-color);
 	color: white;
 	letter-spacing: 2px;
 	text-transform: uppercase;

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
   --------------------------------------------------------
   */
   const quizOptions = {
-    quizTitle: "Find Your Ideal GutDrops Formula",
+    quizTitle: "Find Your Ideal SlimFix Formula",
     quizSubtitle: `Answer these quick questions to craft a powerful, customized solution—perfectly aligned with your body, goals, and lifestyle. Get ready for results you’ll see and feel!`,
     
     questions: [
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Result screen text
     resultText: {
       headline: "Congratulations!",
-      body: `Your personalized GutDrops formula is ready—and it’s tailored to help you reach your weight and wellness goals faster than ever!\n
+      body: `Your personalized SlimFix formula is ready—and it’s tailored to help you reach your weight and wellness goals faster than ever!\n
 Even better, you’ve unlocked an exclusive discount valid only here and now: you can get 3 bottles for FREE when you choose our recommended 6-month program.\n
 This longer treatment ensures your gut has time to fully balance out, giving you sustained results—no more yo-yo dieting, no more wasted effort!\n
 Ready to start?`,
@@ -102,7 +102,7 @@ Ready to start?`,
     },
 
     // Result image
-    resultImage: "../../../assets/pages/vsl/vbl/img/happy-woman.webp"
+    resultImage: "./img/happy-woman.webp"
   };
 
   /*
@@ -216,9 +216,9 @@ Ready to start?`,
       let html = `
         <section id="quiz">
           <div class="container p-4 rounded-4 text-center" style="max-width:900px;">
-            <h2 class="text-start text-warning">${quizOptions.quizTitle}</h2>
-            <small class="text-start quiz-subtitle d-none d-md-block">${quizOptions.quizSubtitle}</small>
-            <p class="quiz-subtitle d-md-none">${quizOptions.quizSubtitle}</p>
+            <h2 class="text-center text-warning">${quizOptions.quizTitle}</h2>
+            <small class="text-center quiz-subtitle d-none d-md-block">${quizOptions.quizSubtitle}</small>
+            <p class="quiz-subtitle text-center d-md-none">${quizOptions.quizSubtitle}</p>
 
             <div class="mt-3 question active">
               <h4>${qQuestion}</h4>
@@ -232,7 +232,7 @@ Ready to start?`,
             <button
               data-idx="${idx}"
               data-value="${ans.value}"
-              class="d-block w-100 mb-3 btn btn-primary px-4 option single-buttons-answer"
+              class="d-block w-100 mb-3 btn px-4 option single-buttons-answer" style="background: linear-gradient(180deg, #FFD700 0%, #e6b800 100%); color: #1A2E1C; font-weight: 700; border: none; box-shadow: 0 3px 0 #c49b00;"
             >
               ${ans.label}
             </button>
@@ -269,7 +269,7 @@ Ready to start?`,
         html += `
             </div>
             <hr class="my-0" />
-            <button class="btn btn-primary next-btn mt-3 next-button mx-auto w-50" style="display:block;">
+            <button class="btn next-btn mt-3 next-button mx-auto w-50 d-block" style="background: linear-gradient(180deg, #FFD700 0%, #e6b800 100%); color: #1A2E1C; font-weight: 700; border: none; box-shadow: 0 3px 0 #c49b00;">
               ${currentQuestionIndex === totalQuestions - 1 ? 'Calculate' : 'Next >'}
             </button>
           </div>
@@ -286,7 +286,7 @@ Ready to start?`,
               placeholder="Your Name"
               value="${currentValue || ''}"
             />
-            <button class="btn btn-primary next-btn w-50">
+            <button class="btn next-btn w-50 d-block mx-auto" style="background: linear-gradient(180deg, #FFD700 0%, #e6b800 100%); color: #1A2E1C; font-weight: 700; border: none; box-shadow: 0 3px 0 #c49b00;">
               Next &gt;
             </button>
           </div>
@@ -304,7 +304,7 @@ Ready to start?`,
               placeholder="lbs (e.g., 150)"
               value="${currentValue || ''}"
             />
-            <button class="btn btn-primary next-btn w-50">Next &gt;</button>
+            <button class="btn next-btn w-50 d-block mx-auto" style="background: linear-gradient(180deg, #FFD700 0%, #e6b800 100%); color: #1A2E1C; font-weight: 700; border: none; box-shadow: 0 3px 0 #c49b00;">Next &gt;</button>
           </div>
         `;
       }
@@ -325,7 +325,7 @@ Ready to start?`,
               value="${currentValString}"
             />
             <div class="mb-3">Current Value: <span class="slider-display">${currentValString}</span></div>
-            <button class="btn btn-primary next-btn w-50">
+            <button class="btn next-btn w-50 d-block mx-auto" style="background: linear-gradient(180deg, #FFD700 0%, #e6b800 100%); color: #1A2E1C; font-weight: 700; border: none; box-shadow: 0 3px 0 #c49b00;">
               Next &gt;
             </button>
           </div>
@@ -336,10 +336,10 @@ Ready to start?`,
       if (currentQuestionIndex > 0) {
         html += `
           <button
-            class="btn prev-btn btn-secondary mt-3 back-button mx-auto w-50 px-4"
-            style="display:block; max-width: fit-content;"
+            class="btn prev-btn mt-3 back-button mx-auto px-4"
+            style="display:block; max-width: fit-content; background: transparent; color: #ffffffcc; font-weight: 600; border: 1px solid #ffffff55; border-radius: 0.5rem; font-size: 0.9rem;"
           >
-            &lt; Previous
+            Back
           </button>
         `;
       }
@@ -438,7 +438,7 @@ Ready to start?`,
                 id="fill"
                 class="rounded-pill h-100"
                 style="
-                  background-image: linear-gradient(to left, limegreen, green);
+                  background-image: linear-gradient(to left, #FFD700, #e6b800);
                   width:${percent}%;
                   transition: width 0.5s;
                 "
@@ -470,8 +470,8 @@ Ready to start?`,
                   <h2 class="text-warning mb-3"><b>${quizOptions.resultText.headline}</b></h2>
                   <p style="white-space:pre-line;">${quizOptions.resultText.body}</p>
                   <button
-                    class="btn btn-success border border-white mb-3 mb-md-0"
-                    style="padding:12px; font-weight:800; color:white; font-size:18px; line-height:20px; z-index:10;"
+                    class="btn mb-3 mb-md-0"
+                    style="padding:12px; font-weight:800; color:#1A2E1C; font-size:18px; line-height:20px; z-index:10; background: linear-gradient(180deg, #FFD700 0%, #e6b800 100%); border: none; box-shadow: 0 3px 0 #c49b00;"
                     id="unlock-discount"
                   >
                     ${quizOptions.resultText.buttonText}

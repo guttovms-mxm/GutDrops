@@ -1,19 +1,23 @@
 :root {
-  --primary-color: #8b51ae;
-  --secondary-color: #f29fff;
-  --third-color: #f29fff;
-  --fourth-color: #8b51ae;
-  --primary-color-light: #3c72a3;
-  --primary-color-dark: #311144;
-  --secondary-color-light: #9bc3df;
-  --secondary-color-dark: #f29fff;
-  --contrast-color: #ffff7d;
-  --text-color: #231F20;
-  --light-color: #F1F1F1;
+  --primary-color: #2E7D32;
+  --secondary-color: #66BB6A;
+  --third-color: #66BB6A;
+  --fourth-color: #2E7D32;
+  --primary-color-light: #43A047;
+  --primary-color-dark: #1B5E20;
+  --secondary-color-light: #A5D6A7;
+  --secondary-color-dark: #66BB6A;
+  --contrast-color: #FFD700;
+  --text-color: #1A2E1C;
+  --light-color: #F1F8F2;
 }
 
 #video {
 	position: relative;
+}
+
+.smartplayer-anchor-button {
+	display: none !important;
 }
 
 @media(max-width: 991px) {
@@ -781,7 +785,7 @@ figure {
 	font-size: 1em;
 	font-style: italic;
 	box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-	border: 3px solid white;
+	border: none;
 	transition: .6s;
 	z-index: 999;
 }
@@ -810,7 +814,7 @@ figure {
 }
 
 .purchased-bottle {
-	background: white;
+	background: transparent;
 	border-radius: 50%;
 }
 
@@ -1280,7 +1284,7 @@ body {
 	width: 15px;
 	height: 15px;
 	border-radius: 50%;
-	background: #007bff;
+	background: #FFD700;
 	cursor: pointer;
 }
 
@@ -1288,8 +1292,36 @@ body {
 	width: 15px;
 	height: 15px;
 	border-radius: 50%;
-	background: #007bff;
+	background: #FFD700;
 	cursor: pointer;
+}
+
+/* Quiz slider (Bootstrap form-range) */
+.form-range::-webkit-slider-thumb {
+	background: #FFD700;
+}
+
+.form-range::-moz-range-thumb {
+	background: #FFD700;
+}
+
+.form-range::-webkit-slider-runnable-track {
+	background: #ffffff55;
+}
+
+.form-range::-moz-range-track {
+	background: #ffffff55;
+}
+
+/* Quiz checkboxes gold */
+.form-check-input:checked {
+	background-color: #FFD700;
+	border-color: #FFD700;
+}
+
+.form-check-input:focus {
+	border-color: #FFD700;
+	box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
 }
 
 .form-check-container {
