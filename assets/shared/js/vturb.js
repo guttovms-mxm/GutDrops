@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (elsDisplayed) return;
 		elsDisplayed = true;
 		elsHiddenList.forEach(function (e) { e.style.display = "block"; });
-		hideCTAButton();
 		try {
 			localStorage.setItem(STORAGE_KEY, "true");
 		} catch (e) {
@@ -45,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (alreadyDisplayed === "true") {
 		setTimeout(function () {
 			showHiddenElements();
-			hideCTAButton();
 		}, 100);
 		return;
 	}

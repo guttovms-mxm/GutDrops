@@ -24,13 +24,13 @@ html {
 }
 
 body {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito", Sans-serif;
   color: var(--text-color);
   animation: fadeInPage 500ms forwards;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito", Sans-serif;
   color: var(--primary-color);
   font-weight: 900;
 }
@@ -144,7 +144,6 @@ figure {
 }
 
 .buy-button:hover {
-  box-shadow: 0px 4px 20px var(--contrast-color);
   transform: scale(1.05);
 }
 
@@ -244,7 +243,7 @@ footer .small {
   background: #dadada;
   color: var(--text-color) !important;
   border: none !important;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito", Sans-serif;
   font-size: 1.25em;
   font-weight: 900;
   border-radius: 0.5em;
@@ -864,53 +863,49 @@ ul.list {
 #steps h1 span {
   color: var(--third-color);
 }
-#steps .step {
-  position: relative;
-  padding: 0.2em 0.8em;
-  white-space: nowrap;
-  border-radius: 0.2em;
-}
 #steps .step-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.2rem;
+  align-items: center;
+  padding: 0.55rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 800;
+  font-size: 1.15rem;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.6);
+}
+#steps .step-container.step-current {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+#steps .step-container.step-done {
+  color: rgba(255, 255, 255, 0.45);
 }
 #steps .step-marker {
-  width: 50px;
-  height: 50px;
-  border-radius: 0.2rem;
-  font-weight: 600;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--third-color);
-}
-#steps .step-current > .step-marker {
-  background: linear-gradient(0deg, var(--third-color), var(--primary-color));
-  border: none;
+  display: none;
 }
 #steps .step-text {
-  font-size: 0.6rem;
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
 }
 #steps .step-divider {
-  height: 50px;
-  width: 100px;
-  position: relative;
   display: flex;
   align-items: center;
+  padding: 0 0.4rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.35);
 }
 #steps .step-divider::after {
-  content: "";
-  width: 100px;
-  position: absolute;
-  left: 0;
-  height: 2px;
-  background: var(--third-color);
+  content: "\25B6";
+  font-size: 0.75rem;
 }
 @media (max-width: 599px) {
-  #steps .step {
-    font-size: 0.8em;
-    padding: 0.2em 0.4em;
+  #steps .step-container {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+  #steps .step-divider {
+    padding: 0 0.2rem;
   }
 }
 #steps .steps-headline {
@@ -927,21 +922,6 @@ ul.list {
 }
 #steps .steps-headline h1 span {
   color: var(--third-color);
-}
-#steps .step-divider {
-  height: 50px;
-  width: 100px;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-#steps .step-divider::after {
-  content: "";
-  width: 100%;
-  position: absolute;
-  left: 0;
-  height: 2px;
-  background: var(--third-color);
 }
 #steps .inner-divisor {
   height: 4px;
@@ -1358,7 +1338,7 @@ ul.list {
   border: 0;
 }
 #faq .accordion-button {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito", Sans-serif;
   font-weight: bold;
   border-radius: 0.25em;
   padding-top: 0.75em;
@@ -1620,13 +1600,6 @@ ul.list {
   max-width: 500px;
 }
 
-.cartpanda.banner-hidden .cpd-default {
-  display: none !important;
-}
-
-.cartpanda#vsl .cpd-default {
-	display: none !important;
-}
 @keyframes fadeInPage {
 	0% {
 		opacity: 0;
