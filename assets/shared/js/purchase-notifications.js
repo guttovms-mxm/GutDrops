@@ -9,9 +9,9 @@ const purchaseNotificationHTML = `
 <div id="purchase-notifications" class="purchases-disclaimer">
   <div class="purchases-box">
 	<div class="purchased-bottle">
-	  <img id="one-bottle" src="/assets/shared/products/bottles-2.svg" style="display: none;">
-	  <img id="three-bottles" src="/assets/shared/products/bottles-3.svg" style="display: none;">
-	  <img id="six-bottles" src="/assets/shared/products/bottles-6.svg" style="display: none;">
+	  <img id="one-bottle" src="/assets/shared/products/bottles-2.png" style="display: none;">
+	  <img id="three-bottles" src="/assets/shared/products/bottles-3.png" style="display: none;">
+	  <img id="six-bottles" src="/assets/shared/products/bottles-6.png" style="display: none;">
 	</div>
 	<div class="purchase-info">
 	  <span id="customer-name"></span> in <span id="customer-location"></span> just bought <span id="items-purchased"></span>!
