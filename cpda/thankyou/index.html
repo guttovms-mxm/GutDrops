@@ -161,6 +161,11 @@
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
+			// Always attach close button listener
+			document.getElementById("pop-up-confirm-button").addEventListener("click", function() {
+				document.getElementById("pop-up-notifications").style.display = "none";
+			});
+
 			if (!response || response.length === 0) {
 				console.warn("No order details found.");
 				return;
@@ -213,15 +218,11 @@
 				popUpContainer.style.display = "block";
 			}
 
-			// Event listener for confirm button
-			document.getElementById("pop-up-confirm-button").addEventListener("click", function() {
-				popUpContainer.style.display = "none"; // Hide popup when confirmed
-			});
 		});
 	</script>
 	<!-- POPUP BYPASS -->
 
-	<section class="py-5" style="background-image: linear-gradient(to bottom, var(--secondary-color-light), transparent);">
+	<section class="py-5" style="background-color: #FFF;">
 		<div class="py-md-3"></div>
 		<div class="container">
 			<div class="row align-items-center">
