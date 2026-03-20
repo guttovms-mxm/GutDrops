@@ -8,7 +8,7 @@
   --secondary-color-light: #81C784;
   --secondary-color-dark: #1B5E20;
 
-  --contrast-color: #F9A825;
+  --contrast-color: #FFD700;
 
   --text-color: #1E1E1E;
   --light-color: #F1F5F1;
@@ -576,10 +576,6 @@ b {
 #steps {
   background-color: var(--primary-color-dark);
   color: white;
-}
-#steps .container > div {
-  max-width: -moz-fit-content;
-  max-width: fit-content;
 }
 #steps h1 {
   color: white;

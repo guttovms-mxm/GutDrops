@@ -39,6 +39,26 @@
 
 	<!-- Main Styles -->
 	<link rel="stylesheet" type="text/css" href="../../assets/shared/css/cb-main.css">
+	<style>
+		#steps .step {
+			position: relative;
+			padding: 0.2em 0.8em;
+			white-space: nowrap;
+			border-radius: 0.2em;
+			font-size: 20px;
+			color: #fff;
+		}
+		#steps .step.current {
+			background-color: var(--primary-color-light);
+			color: var(--white);
+			font-weight: 800;
+		}
+		#steps h1 {
+			font-weight: 900;
+			line-height: 60px;
+			margin-bottom: 10px;
+		}
+	</style>
 	<!-- END Main Styles -->
 
 	<!-- Main Scripts -->
@@ -54,29 +74,28 @@
 </head>
 <body id="dtc" data-funnel="dtcfunnel">
 
-	<!-- Header Step 1 -->
-	<section id="steps" class="py-4">
-		<div class="container text-center">
-			<div class="d-flex mx-auto">
-				<div class="step-container step-current">
-					<p class="step-text">Step 1</p>
-				</div>
-				<div class="step-divider"></div>
-				<div class="step-container">
-					<p class="step-text">Step 2</p>
-				</div>
-				<div class="step-divider"></div>
-				<div class="step-container">
-					<p class="step-text">Step 3</p>
-				</div>
+	<!-- Header -->
+	<header id="steps" class="pt-4" style="background-image: linear-gradient(45deg, var(--primary-color-light), var(--primary-color)); padding-bottom: 6rem;">
+		<div class="container text-white">
+			<!-- Steps Navigation -->
+			<div class="d-flex justify-content-center align-items-center position-relative mx-auto" style="width: fit-content;">
+				<div class="step current">Step 1</div>
+				<i class="bi bi-caret-right-fill opacity-50"></i>
+				<div class="step">Step 2</div>
+				<i class="bi bi-caret-right-fill opacity-50"></i>
+				<div class="step">Step 3</div>
 			</div>
-			<div class="steps-headline">
-				<h1><span>STEP 1:</span> SELECT YOUR DISCOUNT PACKAGE</h1>
+
+			<!-- Heading -->
+			<div class="text-center mt-3">
+				<h1 class="fs-1 text-white">
+					<span style="color: var(--third-color);">STEP 1:</span> SELECT YOUR DISCOUNT PACKAGE
+				</h1>
+				<div class="mx-auto mb-3" style="height: 4px; max-width: 100px; border-bottom: 6px dotted var(--third-color);"></div>
 			</div>
-			<div class="mx-auto mb-3 inner-divisor"></div>
 		</div>
-	</section>
-	<!-- Header Step 1 -->
+	</header>
+	<!-- Header -->
 
 	<!-- CTA Lander -->
 	<section class="py-4 products">
@@ -198,7 +217,7 @@
 					<p class="m-0">We're so confident you'll achieve incredible results that we back SlimFix with a 100% satisfaction guarantee for 60 days. Start using it as soon as it arrives, and within days, you may notice increased energy, reduced cravings, and a faster metabolism. As you continue your journey, you could start to see real changes in your body—stubborn fat melting away and a slimmer, more toned figure, making it the perfect time to track your progress. If after several weeks or even months you're not completely satisfied, we'll refund your money in full. With SlimFix, you're truly in control of your weight loss journey.</p>
 					<div class="d-flex gap-2 flex-wrap align-items-center justify-content-center mt-4 badges">
 						<figure><img src="../../assets/shared/img/badges/gmp.png" alt="Badge"></figure>
-						<!---->
+						<figure><img src="../../assets/shared/img/badges/fda.png" alt="Badge"></figure>
 						<figure><img src="../../assets/shared/img/badges/nat.png" alt="Badge"></figure>
 						<figure><img src="../../assets/shared/img/badges/foreign.png" alt="Badge"></figure>
 						<figure><img src="../../assets/shared/img/badges/gmo.png" alt="Badge"></figure>

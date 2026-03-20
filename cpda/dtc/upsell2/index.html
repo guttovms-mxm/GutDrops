@@ -32,15 +32,23 @@
 			max-width: 380px;
 			margin: 0 auto;
 		}
-		.products .item.promo {
-			background-color: transparent;
-			border: 2px solid var(--primary-color);
-			border-radius: 20px;
-			padding: 0;
-			overflow: hidden;
+		#steps .step {
+			position: relative;
+			padding: 0.2em 0.8em;
+			white-space: nowrap;
+			border-radius: 0.2em;
+			font-size: 20px;
+			color: #fff;
 		}
-		.products .item.promo:hover {
-			scale: 1;
+		#steps .step.current {
+			background-color: var(--primary-color-light);
+			color: var(--white);
+			font-weight: 800;
+		}
+		#steps h1 {
+			font-weight: 900;
+			line-height: 60px;
+			margin-bottom: 10px;
 		}
 	</style>
 	<!-- Main Styles -->
@@ -69,25 +77,27 @@
 <body id="upsell2" class="cartpanda">
 
 		<!-- Header -->
-	<header id="steps" class="pt-4"
-		style="background-image: linear-gradient(45deg, var(--primary-color-light), var(--primary-color)); padding-bottom: 6rem;">
-		<div class="container text-white text-center">
-			<div class="d-flex justify-content-center align-items-center position-relative mx-auto"
-				style="width: fit-content;">
-				<div class="step">Step 1</div>
-				<i class="bi bi-caret-right-fill opacity-50"></i>
-				<div class="step current">Step 2</div>
-				<i class="bi bi-caret-right-fill opacity-50"></i>
-				<div class="step">Step 3</div>
+		<header id="steps" class="pt-4" style="background-image: linear-gradient(45deg, var(--primary-color-light), var(--primary-color)); padding-bottom: 6rem;">
+			<div class="container text-white">
+				<!-- Steps Navigation -->
+				<div class="d-flex justify-content-center align-items-center position-relative mx-auto" style="width: fit-content;">
+					<div class="step">Step 1</div>
+					<i class="bi bi-caret-right-fill opacity-50"></i>
+					<div class="step current">Step 2</div>
+					<i class="bi bi-caret-right-fill opacity-50"></i>
+					<div class="step">Step 3</div>
+				</div>
+
+				<!-- Heading -->
+				<div class="text-center mt-3">
+					<h1 class="fs-1 text-white">
+						<span style="color: var(--third-color);">STEP 2:</span> SELECT YOUR DISCOUNT PACKAGE
+					</h1>
+					<div class="mx-auto mb-3" style="height: 4px; max-width: 100px; border-bottom: 6px dotted var(--third-color);"></div>
+				</div>
 			</div>
-			<div class="text-center mt-3">
-				<h1 class="fs-1 text-white" style="width: 100%;"><span style="color: var(--third-color);">STEP 2:</span><br>SELECT YOUR DISCOUNT PACKAGE</h1>
-				<div class="mx-auto mb-3"
-					style="height: 4px; max-width: 100px; border-bottom: 6px dotted var(--third-color);"></div>
-			</div>
-		</div>
-	</header>
-	<!-- Header -->
+		</header>
+		<!-- Header -->
 
 	<!-- CTA Products -->
 	<section class="products pt-4" style="margin-top: -6rem;">
@@ -151,6 +161,7 @@
 						<p class="m-0">We're so confident you'll achieve incredible results that we back SlimFix with a 100% satisfaction guarantee for 60 days. If after several weeks or even months you're not completely satisfied, we'll refund your money in full.</p>
 						<div class="d-flex gap-2 flex-wrap align-items-center justify-content-center mt-4 badges">
 							<figure><img src="../../../assets/shared/img/badges/gmp.png" alt="Badge"></figure>
+							<figure><img src="../../../assets/shared/img/badges/fda.png" alt="Badge"></figure>
 							<figure><img src="../../../assets/shared/img/badges/nat.png" alt="Badge"></figure>
 							<figure><img src="../../../assets/shared/img/badges/foreign.png" alt="Badge"></figure>
 							<figure><img src="../../../assets/shared/img/badges/gmo.png" alt="Badge"></figure>
