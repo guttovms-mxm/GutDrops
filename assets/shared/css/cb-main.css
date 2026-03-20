@@ -275,6 +275,8 @@ b {
 }
 .products .item .item-img img {
   max-height: 200px;
+  max-width: 100%;
+  object-fit: contain;
 }
 .products .item .item-info {
   grid-area: info;
@@ -838,6 +840,9 @@ b {
 }
 #guarantee h2 span {
   color: var(--primary-color-dark);
+}
+#guarantee > .container > .row > .col-12:first-child img {
+  max-width: 200px;
 }
 #guarantee .badges img {
   background-color: white;
