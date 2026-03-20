@@ -52,6 +52,6 @@ Seven compliance pages (privacy, terms, refund, shipping, disclaimer, references
 
 ## Gotchas
 
-- Vturb errors on localhost (CORS, license) are expected — only works on production domain `theslimfix.shop`.
+- Vturb errors on localhost (CORS, license) are expected — only works on production domain `theslimflix.shop`.
 - The VSL page CSS (`pages/vsl/css/vsl.css`) has `.smartplayer-anchor-button { display: none !important; }` which may conflict with `vturb.js` CTA detection via `offsetParent`.
 - Checkout links in step1/step2 are currently set to `#` (placeholder).
