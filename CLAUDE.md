@@ -48,7 +48,7 @@ Seven compliance pages (privacy, terms, refund, shipping, disclaimer, references
 - **Path depth matters**: Pages at different depths use different relative path prefixes (`../../` for `pages/vsl/`, `../../../` for `pages/dtc/step1/`). Shared JS that injects HTML should use absolute paths (`/assets/...`).
 - **CSS theming**: Primary green `#2E7D32`, dark `#1B5E20`, gold accent `#FFD700`, font Nunito Sans.
 - **Bootstrap 5**: Vendored in `assets/vendor/bootstrap/`, not loaded from CDN.
-- **Google Analytics**: Tag `G-9TQWE18FMG` added to all pages in `<head>`.
+- **Google Analytics**: Tag `G-2XH0BXB26P` added to all pages in `<head>`.
 
 ## Gotchas
 
