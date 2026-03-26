@@ -46,7 +46,6 @@
 	<!-- Main Scripts -->
 	<script type="text/javascript" src="../../../assets/shared/js/purchase-notifications.js" defer></script>
 	<script type="text/javascript" src="../../../assets/shared/js/countdown.js" defer></script>
-	<script type="text/javascript" src="../../../assets/shared/js/vturb.js" defer></script>
 	<!-- Main Scripts -->
 
 	<!-- Google tag (gtag.js) -->
@@ -95,6 +94,16 @@
 				var s=document.createElement("script");
 				s.src="https://scripts.converteai.net/51d04e67-3aad-457f-a49d-b873717030f8/players/69c42eb990ee0eaa953da67b/v4/player.js",
 				s.async=!0,document.head.appendChild(s);
+			</script>
+			<!-- VTurb Player 2.0 Delay (09:55 = 595s) -->
+			<script>
+				var delaySeconds = 595;
+				var player = document.querySelector("vturb-smartplayer");
+				player.addEventListener("player:ready", function() {
+					player.displayHiddenElements(delaySeconds, [".esconder"], {
+						persist: true
+					});
+				});
 			</script>
 		</div>
 	</section>
