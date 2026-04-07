@@ -2,10 +2,6 @@
     position: relative;
 }
 
-.smartplayer-anchor-button {
-    display: none !important;
-}
-
 #video::before {
     content: '';
     position: absolute;

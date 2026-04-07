@@ -106,7 +106,7 @@ b {
 }
 
 .esconder {
-  display: none;
+  display: block;
 }
 
 .clickbank#upsell1 .esconder, .clickbank#upsell2 .esconder, .clickbank#upsell3 .esconder {
@@ -1190,9 +1190,4 @@ footer p {
 	} 100% {
 		opacity: 1;
 	}
-}
-
-/* Hide VTurb CTA Button */
-.smartplayer-anchor-button {
-	display: none !important;
 }
