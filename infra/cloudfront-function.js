@@ -6,6 +6,17 @@ function handler(event) {
   var request = event.request;
   var uri = request.uri;
 
+  if (uri.indexOf("/p/3f86c2c3fd84") === 0) {
+    if (uri === "/p/3f86c2c3fd84" || uri === "/p/3f86c2c3fd84/") {
+      request.uri = "/p/3f86c2c3fd84/index.html";
+    }
+    return request;
+  }
+
+  if (uri.indexOf("/p/e937187b865c") === 0) {
+    return request;
+  }
+
   var match = uri.match(/^\/p\/([A-Za-z0-9_-]+)\.([A-Za-z0-9_-]+)\/?$/);
   if (!match) {
     return { statusCode: 404, statusDescription: "Not Found" };
