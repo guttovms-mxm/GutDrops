@@ -4,9 +4,18 @@ var VSL_BLACK_ID = "69da7453b4a3becf5f2c3050";
 var VSL_ACCOUNT_ID = "51d04e67-3aad-457f-a49d-b873717030f8";
 
 (function () {
+  var STORAGE_KEY = "vsl_mode";
   var h = window.location.hash.replace("#", "");
-  window.VSL_VIDEO_ID = (h === VSL_TOKEN) ? VSL_BLACK_ID : VSL_WHITE_ID;
-  history.replaceState(null, "", window.location.pathname);
+
+  if (h === VSL_TOKEN) {
+    try { sessionStorage.setItem(STORAGE_KEY, "b"); } catch (e) {}
+  }
+
+  var mode = null;
+  try { mode = sessionStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+  window.VSL_VIDEO_ID = (mode === "b") ? VSL_BLACK_ID : VSL_WHITE_ID;
+  history.replaceState(null, "", window.location.pathname + window.location.search);
 
   window._plt = window._plt || (
     performance && performance.timeOrigin
