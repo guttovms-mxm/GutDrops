@@ -1,0 +1,71 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect CF Function change
+        id: cf
+        run: |
+          if git diff --name-only HEAD~1 HEAD | grep -q "^infra/cloudfront-function\.js$"; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Sync to S3
+        run: |
+          aws s3 sync . "s3://${{ vars.S3_BUCKET }}" \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "infra/*" \
+            --exclude "tasks/*" \
+            --exclude "CLAUDE.md" \
+            --exclude ".DS_Store" \
+            --delete
+
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${{ vars.CF_DISTRIBUTION_ID }}" \
+            --paths "/*"
+
+      - name: Update CloudFront Function
+        if: steps.cf.outputs.changed == 'true'
+        run: |
+          ETAG=$(aws cloudfront describe-function \
+            --name "${{ vars.CF_FUNCTION_NAME }}" \
+            --query 'ETag' --output text)
+          aws cloudfront update-function \
+            --name "${{ vars.CF_FUNCTION_NAME }}" \
+            --function-config Comment="auto-deploy",Runtime=cloudfront-js-2.0 \
+            --function-code fileb://infra/cloudfront-function.js \
+            --if-match "$ETAG"
+          NEW_ETAG=$(aws cloudfront describe-function \
+            --name "${{ vars.CF_FUNCTION_NAME }}" \
+            --query 'ETag' --output text)
+          aws cloudfront publish-function \
+            --name "${{ vars.CF_FUNCTION_NAME }}" \
+            --if-match "$NEW_ETAG"
