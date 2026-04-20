@@ -1,6 +1,6 @@
 var VSL_TOKEN = "6b9f350817";
 var VSL_WHITE_ID = "69da633a9aeab139827b25a4";
-var VSL_BLACK_ID = "69e123c060adfc5c3c887c7c";
+var VSL_BLACK_ID = "69e66f2905c3ed4453d6f760";
 var VSL_ACCOUNT_ID = "51d04e67-3aad-457f-a49d-b873717030f8";
 
 (function () {
