@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Thank You & Congratulations! - SlimFix</title>
+	<meta name="description" content="SlimFix">
+	<meta name="keywords" content="slimfix, natural, health">
+	<meta property="og:url" name="url" content="https://theslimflix.shop/dg/thankyou">
+	<meta property="og:image" name="image" content="https://theslimflix.shop/assets/shared/products/bottles-2.png">
+	<meta property="twitter:image" name="image" content="https://theslimflix.shop/assets/shared/products/bottles-2.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="icon" href="../../assets/fav.png">
+
+	<!-- GoogleFonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+	<!-- END GoogleFonts -->
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="../../assets/vendor/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/vendor/bootstrap/bootstrap-icons.min.css">
+	<script type="text/javascript" src="../../assets/vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+	<!-- END Bootstrap -->
+
+	<!-- Main Styles -->
+	<link rel="stylesheet" type="text/css" href="../../assets/shared/css/cb-main.css">
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			margin: 0;
+		}
+		body > section { flex: 1; }
+	</style>
+	<!-- END Main Styles -->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-2XH0BXB26P"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-2XH0BXB26P');
+	</script>
+
+</head>
+
+<body id="thankyou" class="digistore">
+
+	<!-- POPUP BYPASS -->
+	<script>const response = []</script>
+	<!-- PopUp -->
+	<div id="pop-up-notifications" class="pop-up-disclaimer" style="display: none;">
+		<div class="pop-up-box">
+			<div class="pop-up-info text-center">
+				<p class="pop-up-info-title"><span style="color: red;">Important</span> Information Regarding Your Billing</p>
+				<p class="pop-up-info-text" style="margin-bottom: 1.5rem">Your bank statement will show the following charges:</p>
+				<p class="pop-up-billing-text"></p>
+				<p class="pop-up-email" style="margin-top: 1.5rem;"></p>
+				<p class="pop-up-shipping-title"></p><b>Shipping Times</b></p>
+				<ul class="pop-up-shipping-list">
+					<li><b>U.S. Shipping:</b> Please allow 3-5 business days for delivery.</li>
+					<li><b>International Shipping:</b> Allow 7-14 business days for delivery</li>
+				</ul>
+			</div>
+			<button id="pop-up-confirm-button" class="pop-up-button">Ok</button>
+		</div>
+	</div>
+	<!-- END PopUp -->
+
+	<style>
+		.pop-up-disclaimer {
+			position: fixed;
+			top: -200px;
+			right: 30%;
+			left: 30%;
+			padding: 1.5rem 1.5rem;
+			background-color: white;
+			color: black;
+			border-radius: 8px;
+			font-size: 1.2rem;
+			font-style: italic;
+			box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+			border: 3px solid black;
+			transition: .6s;
+			z-index: 999;
+		}
+
+		.pop-up-box {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			align-items: center;
+		}
+
+		.pop-up-info-title {
+			font-size: 28px;
+		}
+
+		.pop-up-info-text,
+		.pop-up-billing-text,
+		.pop-up-email,
+		.pop-up-shipping-title {
+			font-size: 18px;
+		}
+
+		.pop-up-receipt {
+			color: black;
+		}
+
+		.pop-up-receipt:hover {
+			color: red;
+		}
+
+		.pop-up-shipping-list {
+			font-size: 18px;
+			text-align: left;
+		}
+
+		.pop-up-button {
+			width: 80%;
+			border-radius: 10px;
+			background-color: green;
+			border: 1px solid transparent;
+			color: white;
+		}
+
+		.pop-up-button:hover {
+			transform: scale(101%);
+			background-color: greenyellow;
+		}
+
+		@media (max-width: 1200px) {
+			.pop-up-disclaimer {
+				right: 20%;
+				left: 20%;
+			}
+		}
+
+		@media (max-width: 767px) {
+			.pop-up-disclaimer {
+				top: 15px;
+				right: 10%;
+				left: 10%;
+				padding: 1rem 1rem;
+			}
+
+			.pop-up-info-title {
+				font-size: 22px;
+			}
+
+			.pop-up-info-text,
+			.pop-up-billing-text,
+			.pop-up-email,
+			.pop-up-shipping-title {
+				font-size: 14px;
+			}
+
+			.pop-up-shipping-list {
+				font-size: 14px;
+				text-align: left;
+			}
+		}
+	</style>
+
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			if (!response || response.length === 0) {
+				console.warn("No order details found.");
+				return;
+			}
+
+			// Select existing elements inside the pop-up
+			let billingTextContainer = document.querySelector(".pop-up-billing-text");
+			let emailTextContainer = document.querySelector(".pop-up-email");
+			let popUpContainer = document.getElementById("pop-up-notifications");
+
+			// Clear previous content to avoid duplication
+			billingTextContainer.innerHTML = "";
+			emailTextContainer.innerHTML = "";
+
+			response.forEach((order, index) => {
+				let orderData = Array.isArray(order.orderData) ? order.orderData : [order.orderData];
+
+				orderData.forEach((singleOrderData, subIndex) => {
+					if (singleOrderData) {
+						let amount = singleOrderData.totalOrderAmount || "";
+						let receipt = singleOrderData.receipt || "";
+						let email = (singleOrderData.email && singleOrderData.email["@nil"] !== "true") ? singleOrderData.email : "";
+						let lineItemData = singleOrderData.lineItemData || {};
+						let SKU = lineItemData.itemNo || "";
+						let freeTrial = lineItemData.productTitle || "";
+						let recurring = lineItemData.recurring;
+
+						// Ignore if its amount is negative (occurs into recurring orders)
+						if (parseFloat(amount) < 0) {
+							return;
+						}
+
+						let recurringNote = "";
+						if (recurring === "true") {
+							recurringNote = " <em><i>*This is a recurring product. **The amount includes fees subject to change based on the consumer's location and rate adjustments. If you wish to cancel this product trial, please visit our customer service website to cancel your order.</i></em>";
+						}
+
+						billingTextContainer.innerHTML += `<span style="color:red">$${amount} DIGISTORE24*${SKU}</span>${recurringNote}<br>`;
+
+						emailTextContainer.innerHTML = `Receipts for this purchase have been sent to <b>${email}</b><br>`;
+					} else {
+						console.warn(`No SALE transaction found for order index ${index}, subIndex ${subIndex}.`);
+					}
+				});
+			});
+
+			// Show the pop-up if at least one order exists
+			if (billingTextContainer.innerHTML.trim() !== "") {
+				popUpContainer.style.display = "block";
+			}
+
+			// Event listener for confirm button
+			document.getElementById("pop-up-confirm-button").addEventListener("click", function() {
+				popUpContainer.style.display = "none"; // Hide popup when confirmed
+			});
+		});
+	</script>
+	<!-- POPUP BYPASS -->
+
+	<section class="py-5">
+		<div class="py-md-3"></div>
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-12 col-md-7">
+					<h1 class="mb-4" style="color: var(--text-color);">Thank You &<br>Congratulations!</h1>
+					<p>Your purchase was successful, and we're thrilled to have you as a <b>SlimFix</b> customer! Your credit card statement will show a charge from <b>DIGISTORE24*SLIMFIX</b>, the official retailer for products on this site.</p>
+					<p>We aim to process and ship every order within 48 hours, and you'll receive a shipment confirmation email from <b>Digistore24</b> once your order is on its way.</p>
+					<p><b>Shipping Times</b></p>
+					<ul>
+						<li><b>U.S. Shipping:</b> Please allow 3-5 business days for delivery.</li>
+						<li><b>International Shipping:</b> Allow 7-14 business days for delivery</li>
+					</ul>
+					<p>If you have any questions or need assistance with your order, please reach out to us at:</p>
+					<p><b>Email:</b> <a href="mailto:support@theslimflix.shop">support@theslimflix.shop</a></p>
+					<p><i>Tip: To ensure you receive all updates and notifications about your order, please add our email to your whitelist or contacts!</i></p>
+				</div>
+				<div class="col-12 col-md-5">
+					<img src="../../assets/shared/products/bottles-6.png" style="max-width: 500px;">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer CB -->
+	<footer class="text-center py-4 py-md-5" style="background-color: var(--primary-color-dark);">
+		<div class="container text-white text-center" style="max-width: 1100px;">
+			<ul class="list-inline small mb-4">
+				<li class="list-inline-item"><a class="link-light text-decoration-none" href="../../lgl/privacy-policy" target="_blank">PRIVACY</a></li>
+				<li class="list-inline-item opacity-50">|</li>
+				<li class="list-inline-item"><a class="link-light text-decoration-none" href="../../lgl/terms-of-service" target="_blank">TERMS</a></li>
+				<li class="list-inline-item opacity-50">|</li>
+				<li class="list-inline-item"><a class="link-light text-decoration-none" href="../../lgl/shipping-policy" target="_blank">SHIPPING & RETURNS</a></li>
+			</ul>
+			<div style="font-size: .7em;">
+				<p>Digistore24 is the retailer of this product. Digistore24 GmbH, St.-Godehard-Straße 32, 31139 Hildesheim, Germany, acts as the retailer of this product. Digistore24's role as retailer does not constitute an endorsement, approval or review of this product or any claim, statement or opinion used in promotion of this product.</p>
+				<p>Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure or prevent any disease. If you are pregnant, nursing, taking medication, or have a medical condition, consult your physician before using our products.</p>
+				<p>Testimonials, case studies, and examples found on this page are results that have been forwarded to us by users of Slim Fix and related products are not intended to represent or guarantee that anyone will achieve the same or similar results.</p>
+			</div>
+			<div class="small mt-4">
+				For Product Support, please contact the seller <a href="mailto:support@theslimflix.shop" target="_blank" class="text-white" style="text-decoration: underline;">HERE</a>.
+				&nbsp;&nbsp;|&nbsp;&nbsp;
+				For Order Support, please contact Digistore24 <a href="https://www.digistore24.com/support" target="_blank" class="text-white" style="text-decoration: underline;">HERE</a>.
+			</div>
+		</div>
+	</footer>
+	<!-- Footer CB -->
+
+</body>
+
+</html>
