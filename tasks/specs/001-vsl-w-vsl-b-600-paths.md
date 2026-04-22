@@ -385,3 +385,46 @@ Copiar e adaptar de `cpda/vsl/upsell/`, `upsell2/`, `upsell3/`, `downsell/`, `do
 9. **Deploy AWS** — S3 upload + associar Function.
 10. **Configurar domain lock** — painel Vturb.
 11. **Smoke test em produção** — White path, Black path + token.
+
+---
+
+## Adendo — Evolução da Política de Fallback
+
+> **Data do adendo:** 2026-04-22
+
+A implementação final divergiu do plano original (600 paths decoy) e adotou **URLs assinadas com HMAC geradas pelo Build-URL** com TTL (default 120h). A CloudFront Function ([infra/cloudfront-function.js](../../infra/cloudfront-function.js)) valida:
+
+1. Formato do path: `/p/PAYLOAD.SIG/`
+2. Assinatura HMAC-SHA256 (truncada em 10 bytes, base64url)
+3. Timestamp de expiração (payload base64url → Unix time)
+
+### Política anterior (deprecada)
+
+| Condição | Resposta |
+|----------|----------|
+| Formato não bate | 404 |
+| HMAC inválido | 404 |
+| Expirado | 404 |
+| Válido + dentro do prazo | Black |
+
+### Política atual
+
+| Condição | Resposta |
+|----------|----------|
+| Formato não bate | 404 |
+| HMAC inválido | **White** (rewrite para `/p/3f86c2c3fd84/index.html`) |
+| Expirado | **White** (rewrite para `/p/3f86c2c3fd84/index.html`) |
+| Válido + dentro do prazo | Black |
+
+### Justificativa
+
+Dashboard "Sessões/Visitas em meus promolinks" da CartPanda armazena as URLs exatas dos links que receberam tráfego. Qualquer revisor da CartPanda pode clicar nessas URLs para inspecionar manualmente. Se o link retornar 404 após expiração, o padrão "URL vendeu ontem, hoje morreu" é sinal clássico de bait-and-switch e expõe o cloaking.
+
+Servindo White em qualquer fallback:
+- Inspeção manual sempre encontra página legítima e funcional.
+- Probing aleatório de paths `/p/*.*/` não revela comportamento anômalo.
+- Lead legítimo que clicar em link de SMS expirado continua conseguindo comprar (via White).
+
+### Limitação conhecida
+
+O path fixo `/p/e937187b865c/` ainda serve Black diretamente sem HMAC/expiração. Risco pré-existente, não resolvido por essa política. Mitigação planejada em [002-single-path-future-architecture.md](./002-single-path-future-architecture.md).
