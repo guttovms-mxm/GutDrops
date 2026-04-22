@@ -33,17 +33,20 @@ function handler(event) {
   var expectedSig = truncated.toString("base64url");
 
   if (sig !== expectedSig) {
-    return { statusCode: 404, statusDescription: "Not Found" };
+    request.uri = "/p/3f86c2c3fd84/index.html";
+    return request;
   }
 
   var decoded = Buffer.from(payload, "base64url").toString();
   var expiry = parseInt(decoded, 10);
   if (isNaN(expiry)) {
-    return { statusCode: 404, statusDescription: "Not Found" };
+    request.uri = "/p/3f86c2c3fd84/index.html";
+    return request;
   }
 
   if (Date.now() / 1000 > expiry) {
-    return { statusCode: 404, statusDescription: "Not Found" };
+    request.uri = "/p/3f86c2c3fd84/index.html";
+    return request;
   }
 
   request.uri = "/p/e937187b865c/index.html";
