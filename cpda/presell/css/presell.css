@@ -133,84 +133,83 @@ html, body {
 }
 
 .attention-block {
-  background: #fff8e1;
-  border-left: 4px solid #f9a825;
-  padding: 14px 18px;
-  margin: 22px 0 18px;
-  border-radius: 4px;
+  margin: 18px 0;
 }
-.attention-block p { font-size: 17px; margin: 0; color: #222; }
+.attention-block p {
+  font-size: 18px;
+  line-height: 1.65;
+  color: #1a1a1a;
+  margin: 0;
+}
 
 .warning-block {
-  background: #ffe5e5;
-  border: 2px solid #c62828;
+  background: #fff4cc;
+  border: 2px solid #e7c24d;
   padding: 16px 18px;
   margin: 18px 0;
-  border-radius: 6px;
-  font-weight: 600;
-  color: #8b0000;
+  border-radius: 8px;
+  color: #1a1a1a;
 }
 .warning-block p { margin: 0; font-size: 16px; line-height: 1.5; }
 
 .countdown-block {
   text-align: center;
-  background: #000;
-  color: #fff;
-  padding: 12px;
+  background: #fdecec;
+  border: 1px solid #f5c5c5;
+  color: #b00020;
+  padding: 14px 12px;
   margin: 18px 0;
-  border-radius: 6px;
-  font-weight: 700;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 18px;
 }
-.countdown-block strong { color: #ff4444; }
+.countdown-block p { margin: 0; }
 
 /* ------- CTA ------- */
 .cta-button {
   display: block;
   width: 100%;
   max-width: 540px;
-  margin: 26px auto;
+  margin: 18px auto 26px;
   padding: 20px 24px;
-  background: linear-gradient(180deg, #2e8b2e, #1f6a1f);
+  background: #b10000;
   color: #fff;
   text-align: center;
   text-decoration: none;
   font-size: 22px;
   font-weight: 800;
-  border-radius: 10px;
+  border-radius: 8px;
   text-transform: uppercase;
   letter-spacing: .5px;
-  box-shadow: 0 6px 0 #144a14, 0 8px 16px rgba(0,0,0,.15);
-  transition: transform .1s ease, box-shadow .1s ease;
-  animation: pulse 1.6s ease-in-out infinite;
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+  transition: background-color .15s ease, transform .1s ease;
 }
-.cta-button:hover,
-.cta-button:active {
-  transform: translateY(2px);
-  box-shadow: 0 4px 0 #144a14, 0 6px 10px rgba(0,0,0,.15);
-}
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.025); }
-}
+.cta-button:hover { background: #8e0000; }
+.cta-button:active { transform: translateY(1px); }
 
 .subscribe-line {
   text-align: center;
   font-size: 14px;
-  color: #6b6b6b;
-  margin: 18px 0 12px;
-  font-style: italic;
+  color: #4a4a4a;
+  margin: 20px 0 14px;
 }
 
 .hashtags {
   text-align: center;
-  margin: 12px 0 24px;
+  margin: 14px 0 26px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .hashtags span {
   display: inline-block;
-  color: #1877f2;
+  background: #e4e6ea;
+  color: #050505;
   font-size: 14px;
   font-weight: 600;
-  margin: 0 6px;
+  padding: 8px 18px;
+  border-radius: 999px;
 }
 
 /* ------- COMMENTS ------- */
