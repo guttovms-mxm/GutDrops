@@ -169,8 +169,7 @@ html, body {
 .cta-button {
   display: block;
   width: 100%;
-  max-width: 540px;
-  margin: 18px auto 26px;
+  margin: 18px 0 26px;
   padding: 20px 24px;
   background: #b10000;
   color: #fff;
