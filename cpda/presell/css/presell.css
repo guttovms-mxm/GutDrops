@@ -171,20 +171,33 @@ html, body {
   width: 100%;
   margin: 18px 0 26px;
   padding: 20px 24px;
-  background: #b10000;
+  background-color: #c10000;
   color: #fff;
   text-align: center;
   text-decoration: none;
   font-size: 22px;
   font-weight: 800;
+  border: 2px solid #c10000;
   border-radius: 8px;
   text-transform: uppercase;
   letter-spacing: .5px;
-  box-shadow: 0 4px 10px rgba(0,0,0,.15);
-  transition: background-color .15s ease, transform .1s ease;
+  cursor: pointer;
+  transition: all .3s ease;
+  animation: cta-pulse 2s infinite;
 }
-.cta-button:hover { background: #8e0000; }
+.cta-button:hover,
+.cta-button:focus {
+  background-color: #a00000;
+  border-color: #a00000;
+  color: #fff;
+}
 .cta-button:active { transform: translateY(1px); }
+
+@keyframes cta-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(193, 0, 0, .5); }
+  70%  { box-shadow: 0 0 0 15px rgba(193, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(193, 0, 0, 0); }
+}
 
 .subscribe-line {
   text-align: center;
