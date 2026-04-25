@@ -17,11 +17,14 @@ function handler(event) {
     return request;
   }
 
-  var match = uri.match(/^\/p\/([A-Za-z0-9_-]+)\.([A-Za-z0-9_-]+)(\/watch\/?|\/?)$/);
+  var matchCpda = uri.match(/^\/p\/([A-Za-z0-9_-]+)\.([A-Za-z0-9_-]+)(\/watch\/?|\/?)$/);
+  var matchDg = uri.match(/^\/d\/([A-Za-z0-9_-]+)\.([A-Za-z0-9_-]+)(\/watch\/?|\/?)$/);
+  var match = matchCpda || matchDg;
   if (!match) {
     return { statusCode: 404, statusDescription: "Not Found" };
   }
 
+  var isDg = !!matchDg;
   var payload = match[1];
   var sig = match[2];
   var suffix = match[3];
@@ -50,10 +53,11 @@ function handler(event) {
     return request;
   }
 
-  if (suffix.indexOf("/watch") === 0) {
-    request.uri = "/p/e937187b865c/index.html";
+  var isWatch = suffix.indexOf("/watch") === 0;
+  if (isDg) {
+    request.uri = isWatch ? "/dg/vsl/index.html" : "/dg/presell/index.html";
   } else {
-    request.uri = "/cpda/presell/index.html";
+    request.uri = isWatch ? "/p/e937187b865c/index.html" : "/cpda/presell/index.html";
   }
   return request;
 }
