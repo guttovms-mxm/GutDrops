@@ -98,6 +98,18 @@
 				document.getElementById('spots-left').textContent = Math.floor(Math.random() * 5) + 1;
 			</script>
 
+			<script>
+				(function () {
+					if (window.location.pathname.indexOf('/dg/presell') !== 0) return;
+					var isBlack = false;
+					try { isBlack = sessionStorage.getItem('vsl_mode') === 'b'; } catch (e) {}
+					var target = '/dg/vsl/' + (isBlack ? '#6b9f350817' : '');
+					document.querySelectorAll('.buylink').forEach(function (a) {
+						if (a.getAttribute('href') === 'watch') a.href = target;
+					});
+				})();
+			</script>
+
 			<a href="watch" class="cta-button buylink" id="cta-watch-now">▶ WATCH NOW</a>
 
 			<p class="subscribe-line">Stay updated with CNN's investigative reporting</p>
