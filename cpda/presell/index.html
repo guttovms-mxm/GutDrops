@@ -7,7 +7,65 @@
 	<title>CNN News</title>
 	<meta name="description" content="A Salty Gelatin recipe is being censored right now due to claims that it triggers a 24/7 automatic fat-burning mode in the body.">
 	<link rel="icon" href="/assets/fav.png">
-	<link rel="stylesheet" href="/cpda/presell/css/presell.css">
+	<link rel="preload" as="image" href="/cpda/presell/img/hero-poster.jpg" fetchpriority="high">
+	<style>
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	html, body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 17px; line-height: 1.6; color: #1a1a1a; background-color: #fff; -webkit-font-smoothing: antialiased; }
+	.container { width: 100%; max-width: 720px; margin: 0 auto; padding: 0 16px; }
+	.site-header { background: #fff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 9999; }
+	.header-container { max-width: 1200px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; height: 56px; }
+	.header-left { display: flex; align-items: center; }
+	.brand-logo { height: 30px; width: auto; display: block; }
+	.header-nav { display: none; align-items: center; gap: 28px; }
+	.header-nav span { color: #222; font-weight: 600; font-size: 15px; cursor: default; }
+	.header-right { display: flex; align-items: center; gap: 14px; }
+	.search-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: none; border: none; border-radius: 50%; cursor: pointer; color: #222; transition: background-color .2s; }
+	.search-btn:hover { background-color: #f3f4f6; }
+	.signin-btn { display: none; padding: 7px 16px; font-size: 14px; font-weight: 600; color: #222; border: 1px solid #e5e7eb; border-radius: 20px; cursor: default; }
+	@media (min-width: 768px) { .header-nav { display: flex; } .signin-btn { display: inline-block; } }
+	.article { padding: 28px 0 32px; }
+	.headline { font-family: "Georgia", serif; font-size: 32px; line-height: 1.25; font-weight: 800; color: #0b0b0b; margin-bottom: 16px; }
+	.headline .highlight { color: #ff12ff; }
+	.dek { font-size: 18px; line-height: 1.5; color: #4a4a4a; margin-bottom: 22px; }
+	.byline { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-top: 1px solid #e1e1e1; border-bottom: 1px solid #e1e1e1; margin-bottom: 24px; font-size: 14px; }
+	.byline-text { display: flex; flex-direction: column; gap: 2px; }
+	.byline-text .author { font-weight: 700; color: #1a1a1a; }
+	.byline-text .date { color: #6b6b6b; font-size: 13px; }
+	.hero { margin: 0 0 26px; }
+	.hero img, .hero video { width: 100%; height: auto; display: block; border-radius: 4px; aspect-ratio: 1152 / 648; background: #000; }
+	.hero-link { display: block; cursor: pointer; text-decoration: none; }
+	.hero figcaption { font-size: 13px; color: #6b6b6b; padding-top: 8px; font-style: italic; }
+	.body-text p { font-size: 18px; line-height: 1.65; margin-bottom: 18px; color: #1a1a1a; }
+	.attention-block { margin: 18px 0; }
+	.attention-block p { font-size: 18px; line-height: 1.65; color: #1a1a1a; margin: 0; }
+	.warning-block { background: #fff4cc; border: 2px solid #e7c24d; padding: 16px 18px; margin: 18px 0; border-radius: 8px; color: #1a1a1a; }
+	.warning-block p { margin: 0; font-size: 16px; line-height: 1.5; }
+	.countdown-block { text-align: center; background: #fdecec; border: 1px solid #f5c5c5; color: #b00020; padding: 14px 12px; margin: 18px 0; border-radius: 8px; font-weight: 600; font-size: 18px; }
+	.countdown-block p { margin: 0; }
+	.cta-button { display: block; width: 100%; margin: 18px 0 26px; padding: 20px 24px; background-color: #c10000; color: #fff; text-align: center; text-decoration: none; font-size: 22px; font-weight: 800; border: 2px solid #c10000; border-radius: 8px; text-transform: uppercase; letter-spacing: .5px; cursor: pointer; transition: all .3s ease; animation: cta-pulse 2s infinite; }
+	.cta-button:hover, .cta-button:focus { background-color: #a00000; border-color: #a00000; color: #fff; }
+	.cta-button:active { transform: translateY(1px); }
+	@keyframes cta-pulse { 0% { box-shadow: 0 0 0 0 rgba(193,0,0,.5); } 70% { box-shadow: 0 0 0 15px rgba(193,0,0,0); } 100% { box-shadow: 0 0 0 0 rgba(193,0,0,0); } }
+	.subscribe-line { text-align: center; font-size: 14px; color: #4a4a4a; margin: 20px 0 14px; }
+	.hashtags { text-align: center; margin: 14px 0 26px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+	.hashtags span { display: inline-block; background: #e4e6ea; color: #050505; font-size: 14px; font-weight: 600; padding: 8px 18px; border-radius: 999px; }
+	.comments { background: #f6f7f9; padding: 28px 0 36px; border-top: 1px solid #e1e1e1; }
+	.comments-title { font-size: 18px; margin-bottom: 18px; color: #1a1a1a; font-weight: 700; }
+	.comment { display: flex; gap: 10px; margin-bottom: 14px; }
+	.comment.reply { margin-left: 40px; }
+	.comment.reply-deep { margin-left: 80px; }
+	.avatar img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; display: block; }
+	.comment-body { background: #fff; border-radius: 14px; padding: 10px 14px; flex: 1; border: 1px solid #e7e7e7; }
+	.comment-name { font-weight: 700; font-size: 14px; color: #050505; margin-bottom: 2px; }
+	.comment-text { font-size: 15px; color: #050505; line-height: 1.4; }
+	.comment-text .mention { color: #1877f2; font-weight: 600; }
+	.comment-meta { font-size: 12px; color: #65676b; margin-top: 6px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+	.comment-meta span { white-space: nowrap; }
+	.comment-meta .likes { margin-left: auto; background: #fff; border: 1px solid #e1e1e1; border-radius: 12px; padding: 2px 8px; font-weight: 600; color: #050505; }
+	.disclaimer { padding: 22px 0 32px; background: #1a1a1a; color: #9b9b9b; font-size: 12px; line-height: 1.6; text-align: center; }
+	.disclaimer p { max-width: 640px; margin: 0 auto; }
+	@media (max-width: 560px) { .headline { font-size: 26px; } .dek { font-size: 16px; } .body-text p { font-size: 17px; } .cta-button { font-size: 19px; padding: 18px 16px; } .comment.reply { margin-left: 20px; } .comment.reply-deep { margin-left: 40px; } }
+	</style>
 
 	<script>
 		(function () {
@@ -32,7 +90,7 @@
 	<header class="site-header">
 		<div class="header-container">
 			<div class="header-left">
-				<img src="/cpda/presell/img/today-logo.png" alt="TODAY" class="brand-logo">
+				<svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="120" height="30" role="img" aria-label="TODAY"><g fill="#EE5C2A"><path d="M2 50 A28 28 0 0 1 58 50 L51 50 A21 21 0 0 0 9 50 Z"/><path d="M13 50 A17 17 0 0 1 47 50 L40 50 A10 10 0 0 0 20 50 Z"/><path d="M24 50 A6 6 0 0 1 36 50 Z"/></g><text x="68" y="50" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="40" fill="#0b0b0b" letter-spacing="-1.5">TODAY</text></svg>
 			</div>
 			<nav class="header-nav">
 				<span>On the Show</span>
@@ -66,7 +124,10 @@
 
 			<figure class="hero">
 				<a href="watch" class="hero-link buylink" aria-label="Watch the video">
-					<img src="/cpda/presell/img/hero.gif" alt="Salty Gelatin Recipe">
+					<video autoplay muted loop playsinline preload="auto" poster="/cpda/presell/img/hero-poster.jpg" width="1152" height="648" aria-label="Salty Gelatin Recipe">
+						<source src="/cpda/presell/img/hero.webm" type="video/webm">
+						<source src="/cpda/presell/img/hero.mp4" type="video/mp4">
+					</video>
 				</a>
 				<figcaption>Salty Gelatin Recipe</figcaption>
 			</figure>
@@ -116,7 +177,7 @@
 			<h3 class="comments-title">💬 Comments</h3>
 
 			<article class="comment">
-				<div class="avatar"><img src="/cpda/vsl/img/fb/user1.webp" alt="Sarah Smith"></div>
+				<div class="avatar"><img loading="lazy" decoding="async" width="40" height="40" src="/cpda/vsl/img/fb/user1.webp" alt="Sarah Smith"></div>
 				<div class="comment-body">
 					<div class="comment-name">Sarah Smith</div>
 					<div class="comment-text">OMG! My doctor couldn't believe it. I lost so much belly fat with this gelatin trick that he thought I was starving myself. But my tests show I'm healthier than ever!</div>
@@ -128,7 +189,7 @@
 			</article>
 
 			<article class="comment reply">
-				<div class="avatar"><img src="/cpda/vsl/img/fb/user2.webp" alt="Jennifer Taylor"></div>
+				<div class="avatar"><img loading="lazy" decoding="async" width="40" height="40" src="/cpda/vsl/img/fb/user2.webp" alt="Jennifer Taylor"></div>
 				<div class="comment-body">
 					<div class="comment-name">Jennifer Taylor</div>
 					<div class="comment-text"><span class="mention">Sarah Smith</span> Girl, I melted 11 pounds in just a week! This gelatin trick is unreal!</div>
@@ -140,7 +201,7 @@
 			</article>
 
 			<article class="comment">
-				<div class="avatar"><img src="/cpda/vsl/img/fb/user3.webp" alt="Olivia Moore"></div>
+				<div class="avatar"><img loading="lazy" decoding="async" width="40" height="40" src="/cpda/vsl/img/fb/user3.webp" alt="Olivia Moore"></div>
 				<div class="comment-body">
 					<div class="comment-name">Olivia Moore</div>
 					<div class="comment-text">I've been using this gelatin trick for just over 3 weeks, and my belly fat is literally melting off! Even my husband noticed and complimented me today!</div>
@@ -152,7 +213,7 @@
 			</article>
 
 			<article class="comment">
-				<div class="avatar"><img src="/cpda/vsl/img/fb/user4.webp" alt="Jessica Brown"></div>
+				<div class="avatar"><img loading="lazy" decoding="async" width="40" height="40" src="/cpda/vsl/img/fb/user4.webp" alt="Jessica Brown"></div>
 				<div class="comment-body">
 					<div class="comment-name">Jessica Brown</div>
 					<div class="comment-text">Finally, someone explained a solution that melts fat without all the medical jargon! I'm starting the gelatin trick this morning—thank you for being so clear!</div>
@@ -164,7 +225,7 @@
 			</article>
 
 			<article class="comment">
-				<div class="avatar"><img src="/cpda/vsl/img/fb/user2.webp" alt="Jennifer Taylor"></div>
+				<div class="avatar"><img loading="lazy" decoding="async" width="40" height="40" src="/cpda/vsl/img/fb/user2.webp" alt="Jennifer Taylor"></div>
 				<div class="comment-body">
 					<div class="comment-name">Jennifer Taylor</div>
 					<div class="comment-text">My binge eating used to control me. But after starting the gelatin trick, I don't crave sweets anymore. I've already melted 19 pounds in two weeks—it feels amazing!</div>
@@ -176,7 +237,7 @@
 			</article>
 
 			<article class="comment reply">
-				<div class="avatar"><img src="/cpda/vsl/img/fb/user5.webp" alt="Emily Johnson"></div>
+				<div class="avatar"><img loading="lazy" decoding="async" width="40" height="40" src="/cpda/vsl/img/fb/user5.webp" alt="Emily Johnson"></div>
 				<div class="comment-body">
 					<div class="comment-name">Emily Johnson</div>
 					<div class="comment-text"><span class="mention">Jennifer Taylor</span> That's insane! Did you change anything else or just the gelatin trick?</div>
@@ -188,7 +249,7 @@
 			</article>
 
 			<article class="comment reply-deep">
-				<div class="avatar"><img src="/cpda/vsl/img/fb/user2.webp" alt="Jennifer Taylor"></div>
+				<div class="avatar"><img loading="lazy" decoding="async" width="40" height="40" src="/cpda/vsl/img/fb/user2.webp" alt="Jennifer Taylor"></div>
 				<div class="comment-body">
 					<div class="comment-name">Jennifer Taylor</div>
 					<div class="comment-text"><span class="mention">Emily Johnson</span> Nothing else—just the gelatin trick! No diet, no gym. It's wild how much fat I'm melting!</div>
@@ -200,7 +261,7 @@
 			</article>
 
 			<article class="comment">
-				<div class="avatar"><img src="/cpda/vsl/img/fb/user6.webp" alt="Ashley Davis"></div>
+				<div class="avatar"><img loading="lazy" decoding="async" width="40" height="40" src="/cpda/vsl/img/fb/user6.webp" alt="Ashley Davis"></div>
 				<div class="comment-body">
 					<div class="comment-name">Ashley Davis</div>
 					<div class="comment-text">Does anyone know if this gelatin trick really works? I'm extremely overweight and feeling desperate!</div>
@@ -212,7 +273,7 @@
 			</article>
 
 			<article class="comment reply">
-				<div class="avatar"><img src="/cpda/vsl/img/fb/user7.webp" alt="Morgan Rose"></div>
+				<div class="avatar"><img loading="lazy" decoding="async" width="40" height="40" src="/cpda/vsl/img/fb/user7.webp" alt="Morgan Rose"></div>
 				<div class="comment-body">
 					<div class="comment-name">Morgan Rose</div>
 					<div class="comment-text"><span class="mention">Ashley Davis</span> Yes! I looked it up—there are studies backing it. My belly fat is melting away thanks to this gelatin trick. Give it a try!</div>
@@ -224,7 +285,7 @@
 			</article>
 
 			<article class="comment">
-				<div class="avatar"><img src="/cpda/vsl/img/fb/user8.webp" alt="Natalie Clark"></div>
+				<div class="avatar"><img loading="lazy" decoding="async" width="40" height="40" src="/cpda/vsl/img/fb/user8.webp" alt="Natalie Clark"></div>
 				<div class="comment-body">
 					<div class="comment-name">Natalie Clark</div>
 					<div class="comment-text">This is the most honest solution I've seen. No long videos, no upsells—just a simple gelatin trick that melts belly fat. Thank you so much!</div>
@@ -236,7 +297,7 @@
 			</article>
 
 			<article class="comment">
-				<div class="avatar"><img src="/cpda/vsl/img/fb/user9.webp" alt="Chloe Garcia"></div>
+				<div class="avatar"><img loading="lazy" decoding="async" width="40" height="40" src="/cpda/vsl/img/fb/user9.webp" alt="Chloe Garcia"></div>
 				<div class="comment-body">
 					<div class="comment-name">Chloe Garcia</div>
 					<div class="comment-text">After 3 weeks with the gelatin trick, my belly is flat like a board. I've melted 26 pounds without dieting—I feel lighter and more beautiful already!</div>
