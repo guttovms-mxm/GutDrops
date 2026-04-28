@@ -4,3 +4,5 @@
 
 # Playwright/test artifacts
 .playwright-mcp/
+*-test.png
+prod-*.png
