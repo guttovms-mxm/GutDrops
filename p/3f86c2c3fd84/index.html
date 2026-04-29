@@ -14,6 +14,9 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://scripts.converteai.net" crossorigin>
+	<link rel="preconnect" href="https://cdn.converteai.net" crossorigin>
+	<link rel="preconnect" href="https://assets.mycartpanda.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="/assets/vendor/bootstrap/bootstrap.min.css">
@@ -25,7 +28,33 @@
 	<link rel="stylesheet" type="text/css" href="./css/vsl.css">
 	<style>.smartplayer-anchor-button{opacity:0 !important;pointer-events:none !important;position:absolute !important;left:-9999px !important}</style>
 
-	<script type="text/javascript" src="/assets/shared/js/vsl-token.js"></script>
+	<script>
+	var VSL_TOKEN = "6b9f350817";
+	var VSL_WHITE_ID = "69da633a9aeab139827b25a4";
+	var VSL_BLACK_ID = "69eb8a1279a9b357d90c524a";
+	var VSL_ACCOUNT_ID = "51d04e67-3aad-457f-a49d-b873717030f8";
+	(function () {
+	  var STORAGE_KEY = "vsl_mode";
+	  var h = window.location.hash.replace("#", "");
+	  if (h === VSL_TOKEN) {
+	    try { sessionStorage.setItem(STORAGE_KEY, "b"); } catch (e) {}
+	  }
+	  var mode = null;
+	  try { mode = sessionStorage.getItem(STORAGE_KEY); } catch (e) {}
+	  window.VSL_VIDEO_ID = (mode === "b") ? VSL_BLACK_ID : VSL_WHITE_ID;
+	  history.replaceState(null, "", window.location.pathname + window.location.search);
+	  window._plt = window._plt || (
+	    performance && performance.timeOrigin
+	      ? performance.timeOrigin + performance.now()
+	      : Date.now()
+	  );
+	  var l = document.createElement("link");
+	  l.rel = "preload";
+	  l.href = "https://scripts.converteai.net/" + VSL_ACCOUNT_ID + "/players/" + window.VSL_VIDEO_ID + "/v4/player.js";
+	  l.as = "script";
+	  document.head.appendChild(l);
+	})();
+	</script>
 	<script type="text/javascript" src="/assets/shared/js/purchase-notifications.js" defer></script>
 	<script type="text/javascript" src="/assets/shared/js/countdown.js" defer></script>
 	<script type="text/javascript" src="/assets/shared/js/kits02.js" defer></script>
@@ -43,8 +72,6 @@
 	<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
 	<link rel="preload" id="vturb-preload" href="" as="script">
 	<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-	<link rel="dns-prefetch" href="https://cdn.converteai.net">
-	<link rel="dns-prefetch" href="https://scripts.converteai.net">
 	<link rel="dns-prefetch" href="https://images.converteai.net">
 	<link rel="dns-prefetch" href="https://api.vturb.com.br">
 	<script>
@@ -58,7 +85,7 @@
 	  })();
 	</script>
 
-<script type="text/javascript" src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js"></script>
+<script defer src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js"></script>
 </head>
 <body id="vsl" class="cartpanda" data-funnel="vslfunnel">
 
@@ -84,7 +111,7 @@
 					<ul class="strip3-list">
 						<li><strong>Sale Status:</strong> Live</li>
 						<li>
-							<img src="img/hour-glass.png" alt="" class="hourglass">
+							<img loading="lazy" decoding="async" src="img/hour-glass.png" alt="" class="hourglass">
 							<strong>Quantity Remaining:</strong> <span class="countdown">112</span>
 						</li>
 					</ul>
@@ -95,7 +122,7 @@
 
 		<div class="container">
 			<div class="shipbx">
-				<div class="shipiconbx"><img src="img/ship-icon.png" alt=""></div>
+				<div class="shipiconbx"><img loading="lazy" decoding="async" src="img/ship-icon.png" alt=""></div>
 				<p class="shipbx-txt1">Enjoy <span class="red">FREE US SHIPPING</span> on 3&nbsp;and 6-Bottle Orders!</p>
 				<p class="shipbx-txt2">*For long-term results, we recommend choosing the 6&nbsp;bottle&nbsp;option</p>
 			</div>
@@ -113,7 +140,7 @@
 								<div class="item-header">Best Value!</div>
 								<div class="item-img">
 									<div class="supply"><b>6 Bottles</b>180 Day Supply</div>
-									<img src="/assets/shared/products/bottles-6.png" alt="6 Bottles">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/bottles-6.png" alt="6 Bottles">
 								</div>
 								<div class="item-info">
 									<div class="price">
@@ -127,7 +154,7 @@
 								</div>
 								<div class="item-buy">
 									<div class="button"><div><span>ADD TO CART!</span></div></div>
-									<img src="/assets/shared/products/cards-dark.webp" alt="Cards" class="card-flags">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/cards-dark.webp" alt="Cards" class="card-flags">
 								</div>
 								<div class="item-totals">
 									<div class="totals">Total: <s>$1074</s> <b>$294</b></div>
@@ -143,7 +170,7 @@
 								<div class="item-header">Most Popular</div>
 								<div class="item-img">
 									<div class="supply"><b>3 Bottles</b>90 Day Supply</div>
-									<img src="/assets/shared/products/bottles-3.png" alt="3 Bottles">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/bottles-3.png" alt="3 Bottles">
 								</div>
 								<div class="item-info">
 									<div class="price">
@@ -157,7 +184,7 @@
 								</div>
 								<div class="item-buy">
 									<div class="button"><div><span>ADD TO CART!</span></div></div>
-									<img src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
 								</div>
 								<div class="item-totals">
 									<div class="totals">Total: <s>$537</s> <b>$207</b></div>
@@ -173,7 +200,7 @@
 								<div class="item-header">Basic</div>
 								<div class="item-img">
 									<div class="supply"><b>2 Bottles</b>60 Day Supply</div>
-									<img src="/assets/shared/products/bottles-2.png" alt="2 Bottles">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/bottles-2.png" alt="2 Bottles">
 								</div>
 								<div class="item-info">
 									<div class="price">
@@ -187,7 +214,7 @@
 								</div>
 								<div class="item-buy">
 									<div class="button"><div><span>BUY NOW</span></div></div>
-									<img src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
 								</div>
 								<div class="item-totals">
 									<div class="totals">Total: <s>$358</s> <b>$158</b></div>
@@ -205,7 +232,7 @@
 			<div class="container">
 				<div class="row align-items-center justify-content-center">
 					<div class="col-12 col-md-3 guarantee-badge-col">
-						<figure><img src="/assets/shared/img/guarantee-badge.png" alt="Guarantee"></figure>
+						<figure><img loading="lazy" decoding="async" src="/assets/shared/img/guarantee-badge.png" alt="Guarantee"></figure>
 					</div>
 					<div class="col-12 col-md-9">
 						<h2 class="mb-3">100% Satisfaction or Your Money Back<span>60-Day Guarantee</span></h2>
@@ -213,7 +240,7 @@
 					</div>
 				</div>
 				<div class="guarantee-badges-row">
-					<img src="/assets/shared/img/badges/certifications.png" alt="Certifications">
+					<img loading="lazy" decoding="async" src="/assets/shared/img/badges/certifications.png" alt="Certifications">
 				</div>
 			</div>
 		</section>
@@ -228,7 +255,7 @@
 					<ul class="strip3-list">
 						<li><strong>Sale Status:</strong> Live</li>
 						<li>
-							<img src="img/hour-glass.png" alt="" class="hourglass">
+							<img loading="lazy" decoding="async" src="img/hour-glass.png" alt="" class="hourglass">
 							<strong>Quantity Remaining:</strong> <span class="countdown">112</span>
 						</li>
 					</ul>
@@ -239,7 +266,7 @@
 
 		<div class="container">
 			<div class="shipbx">
-				<div class="shipiconbx"><img src="img/ship-icon.png" alt=""></div>
+				<div class="shipiconbx"><img loading="lazy" decoding="async" src="img/ship-icon.png" alt=""></div>
 				<p class="shipbx-txt1">Enjoy <span class="red">FREE US SHIPPING</span> on 3&nbsp;and 6-Bottle Orders!</p>
 				<p class="shipbx-txt2">*For long-term results, we recommend choosing the 6&nbsp;bottle&nbsp;option</p>
 			</div>
@@ -257,7 +284,7 @@
 								<div class="item-header">Best Value!</div>
 								<div class="item-img">
 									<div class="supply"><b>6 Bottles</b>180 Day Supply</div>
-									<img src="/assets/shared/products/bottles-6.png" alt="6 Bottles">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/bottles-6.png" alt="6 Bottles">
 								</div>
 								<div class="item-info">
 									<div class="price">
@@ -271,7 +298,7 @@
 								</div>
 								<div class="item-buy">
 									<div class="button"><div><span>ADD TO CART!</span></div></div>
-									<img src="/assets/shared/products/cards-dark.webp" alt="Cards" class="card-flags">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/cards-dark.webp" alt="Cards" class="card-flags">
 								</div>
 								<div class="item-totals">
 									<div class="totals">Total: <s>$1074</s> <b>$294</b></div>
@@ -287,7 +314,7 @@
 								<div class="item-header">Most Popular</div>
 								<div class="item-img">
 									<div class="supply"><b>3 Bottles</b>90 Day Supply</div>
-									<img src="/assets/shared/products/bottles-3.png" alt="3 Bottles">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/bottles-3.png" alt="3 Bottles">
 								</div>
 								<div class="item-info">
 									<div class="price">
@@ -301,7 +328,7 @@
 								</div>
 								<div class="item-buy">
 									<div class="button"><div><span>ADD TO CART!</span></div></div>
-									<img src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
 								</div>
 								<div class="item-totals">
 									<div class="totals">Total: <s>$537</s> <b>$207</b></div>
@@ -317,7 +344,7 @@
 								<div class="item-header">Basic</div>
 								<div class="item-img">
 									<div class="supply"><b>2 Bottles</b>60 Day Supply</div>
-									<img src="/assets/shared/products/bottles-2.png" alt="2 Bottles">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/bottles-2.png" alt="2 Bottles">
 								</div>
 								<div class="item-info">
 									<div class="price">
@@ -331,7 +358,7 @@
 								</div>
 								<div class="item-buy">
 									<div class="button"><div><span>BUY NOW</span></div></div>
-									<img src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
 								</div>
 								<div class="item-totals">
 									<div class="totals">Total: <s>$358</s> <b>$158</b></div>
@@ -442,7 +469,7 @@
 					<ul class="strip3-list">
 						<li><strong>Sale Status:</strong> Live</li>
 						<li>
-							<img src="img/hour-glass.png" alt="" class="hourglass">
+							<img loading="lazy" decoding="async" src="img/hour-glass.png" alt="" class="hourglass">
 							<strong>Quantity Remaining:</strong> <span class="countdown">112</span>
 						</li>
 					</ul>
@@ -453,7 +480,7 @@
 
 		<div class="container">
 			<div class="shipbx">
-				<div class="shipiconbx"><img src="img/ship-icon.png" alt=""></div>
+				<div class="shipiconbx"><img loading="lazy" decoding="async" src="img/ship-icon.png" alt=""></div>
 				<p class="shipbx-txt1">Enjoy <span class="red">FREE US SHIPPING</span> on 3&nbsp;and 6-Bottle Orders!</p>
 				<p class="shipbx-txt2">*For long-term results, we recommend choosing the 6&nbsp;bottle&nbsp;option</p>
 			</div>
@@ -471,7 +498,7 @@
 								<div class="item-header">Best Value!</div>
 								<div class="item-img">
 									<div class="supply"><b>6 Bottles</b>180 Day Supply</div>
-									<img src="/assets/shared/products/bottles-6.png" alt="6 Bottles">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/bottles-6.png" alt="6 Bottles">
 								</div>
 								<div class="item-info">
 									<div class="price">
@@ -485,7 +512,7 @@
 								</div>
 								<div class="item-buy">
 									<div class="button"><div><span>ADD TO CART!</span></div></div>
-									<img src="/assets/shared/products/cards-dark.webp" alt="Cards" class="card-flags">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/cards-dark.webp" alt="Cards" class="card-flags">
 								</div>
 								<div class="item-totals">
 									<div class="totals">Total: <s>$1074</s> <b>$294</b></div>
@@ -501,7 +528,7 @@
 								<div class="item-header">Most Popular</div>
 								<div class="item-img">
 									<div class="supply"><b>3 Bottles</b>90 Day Supply</div>
-									<img src="/assets/shared/products/bottles-3.png" alt="3 Bottles">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/bottles-3.png" alt="3 Bottles">
 								</div>
 								<div class="item-info">
 									<div class="price">
@@ -515,7 +542,7 @@
 								</div>
 								<div class="item-buy">
 									<div class="button"><div><span>ADD TO CART!</span></div></div>
-									<img src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
 								</div>
 								<div class="item-totals">
 									<div class="totals">Total: <s>$537</s> <b>$207</b></div>
@@ -531,7 +558,7 @@
 								<div class="item-header">Basic</div>
 								<div class="item-img">
 									<div class="supply"><b>2 Bottles</b>60 Day Supply</div>
-									<img src="/assets/shared/products/bottles-2.png" alt="2 Bottles">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/bottles-2.png" alt="2 Bottles">
 								</div>
 								<div class="item-info">
 									<div class="price">
@@ -545,7 +572,7 @@
 								</div>
 								<div class="item-buy">
 									<div class="button"><div><span>BUY NOW</span></div></div>
-									<img src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
+									<img loading="lazy" decoding="async" src="/assets/shared/products/cards.webp" alt="Cards" class="card-flags">
 								</div>
 								<div class="item-totals">
 									<div class="totals">Total: <s>$358</s> <b>$158</b></div>
@@ -564,16 +591,16 @@
 	<div class="logos container">
 		<div class="row align-items-center justify-content-center">
 			<div class="col-6 col-lg-3">
-				<img src="img/logos/nih.png" alt="National Institutes of Health">
+				<img loading="lazy" decoding="async" src="img/logos/nih.png" alt="National Institutes of Health">
 			</div>
 			<div class="col-6 col-lg-3">
-				<img src="img/logos/johns-hopkins.png" alt="Johns Hopkins University">
+				<img loading="lazy" decoding="async" src="img/logos/johns-hopkins.png" alt="Johns Hopkins University">
 			</div>
 			<div class="col-6 col-lg-3">
-				<img src="img/logos/ucsf.png" alt="University of California San Francisco">
+				<img loading="lazy" decoding="async" src="img/logos/ucsf.png" alt="University of California San Francisco">
 			</div>
 			<div class="col-6 col-lg-3">
-				<img src="img/logos/umich.png" alt="University of Michigan">
+				<img loading="lazy" decoding="async" src="img/logos/umich.png" alt="University of Michigan">
 			</div>
 		</div>
 	</div>
@@ -603,7 +630,7 @@
 
 							<li class="box_result row">
 								<div class="avatar_comment col-md-1">
-									<img src="img/fb/user1.webp" alt="avatar" />
+									<img loading="lazy" decoding="async" src="img/fb/user1.webp" alt="avatar" />
 								</div>
 								<div class="result_comment col-md-11">
 									<h4>Maria Santos said:</h4>
@@ -623,7 +650,7 @@
 
 							<li class="box_result row">
 								<div class="avatar_comment col-md-1">
-									<img src="img/fb/user2.webp" alt="avatar" />
+									<img loading="lazy" decoding="async" src="img/fb/user2.webp" alt="avatar" />
 								</div>
 								<div class="result_comment col-md-11">
 									<h4>Jennifer Williams said:</h4>
@@ -643,7 +670,7 @@
 
 							<li class="box_result row">
 								<div class="avatar_comment col-md-1">
-									<img src="img/fb/user3.webp" alt="avatar" />
+									<img loading="lazy" decoding="async" src="img/fb/user3.webp" alt="avatar" />
 								</div>
 								<div class="result_comment col-md-11">
 									<h4>Patricia Moore said:</h4>
@@ -660,7 +687,7 @@
 									<ul class="child_replay">
 										<li class="box_reply row">
 											<div class="avatar_comment col-md-1">
-												<img src="img/fb/user4.webp" alt="avatar" />
+												<img loading="lazy" decoding="async" src="img/fb/user4.webp" alt="avatar" />
 											</div>
 											<div class="result_comment col-md-11">
 												<h4>Scott Melvin replied:</h4>
@@ -679,7 +706,7 @@
 										</li>
 										<li class="box_reply row">
 											<div class="avatar_comment col-md-1">
-												<img src="img/fb/user5.webp" alt="avatar" />
+												<img loading="lazy" decoding="async" src="img/fb/user5.webp" alt="avatar" />
 											</div>
 											<div class="result_comment col-md-11">
 												<h4>Lisa Miller replied:</h4>
@@ -702,7 +729,7 @@
 
 							<li class="box_result row">
 								<div class="avatar_comment col-md-1">
-									<img src="img/fb/user6.webp" alt="avatar" />
+									<img loading="lazy" decoding="async" src="img/fb/user6.webp" alt="avatar" />
 								</div>
 								<div class="result_comment col-md-11">
 									<h4>Lori Marie said:</h4>
@@ -722,7 +749,7 @@
 
 							<li class="box_result row">
 								<div class="avatar_comment col-md-1">
-									<img src="img/fb/user7.webp" alt="avatar" />
+									<img loading="lazy" decoding="async" src="img/fb/user7.webp" alt="avatar" />
 								</div>
 								<div class="result_comment col-md-11">
 									<h4>Amanda O'Malley said:</h4>
@@ -742,7 +769,7 @@
 
 							<li class="box_result row">
 								<div class="avatar_comment col-md-1">
-									<img src="img/fb/user8.webp" alt="avatar" />
+									<img loading="lazy" decoding="async" src="img/fb/user8.webp" alt="avatar" />
 								</div>
 								<div class="result_comment col-md-11">
 									<h4>Andy Battoglia said:</h4>
@@ -759,7 +786,7 @@
 									<ul class="child_replay">
 										<li class="box_reply row">
 											<div class="avatar_comment col-md-1">
-												<img src="img/fb/user9.webp" alt="avatar" />
+												<img loading="lazy" decoding="async" src="img/fb/user9.webp" alt="avatar" />
 											</div>
 											<div class="result_comment col-md-11">
 												<h4>Lucy Delane replied:</h4>
@@ -778,7 +805,7 @@
 										</li>
 										<li class="box_reply row">
 											<div class="avatar_comment col-md-1">
-												<img src="img/fb/user8.webp" alt="avatar" />
+												<img loading="lazy" decoding="async" src="img/fb/user8.webp" alt="avatar" />
 											</div>
 											<div class="result_comment col-md-11">
 												<h4>Andy Battoglia replied:</h4>
@@ -801,7 +828,7 @@
 
 							<li class="box_result row">
 								<div class="avatar_comment col-md-1">
-									<img src="img/fb/user10.webp" alt="avatar" />
+									<img loading="lazy" decoding="async" src="img/fb/user10.webp" alt="avatar" />
 								</div>
 								<div class="result_comment col-md-11">
 									<h4>Melony Scharmen said:</h4>
